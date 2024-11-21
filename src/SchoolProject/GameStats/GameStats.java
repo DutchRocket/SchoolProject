@@ -22,9 +22,9 @@ public class GameStats {
         this.frame = frame;
         this.player = player;
         this.gameOver = false;
-        this.level =0;
-        this.frameRate = 50;
-        this.gameSpeed = 1;
+        this.level = 0;
+        this.frameRate = 60;
+        this.gameSpeed = 100;
     }
 
     public GamePanel getGamePanel() {

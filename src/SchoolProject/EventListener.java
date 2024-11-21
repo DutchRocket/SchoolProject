@@ -20,5 +20,6 @@ public class EventListener implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+        PlayerActions.onKeyPress(e, 1);
     }
 }

@@ -7,27 +7,31 @@ import SchoolProject.Main;
 import java.awt.event.KeyEvent;
 
 public class PlayerActions {
-    public static boolean onKeyPress(KeyEvent e, int keyStatus){
+    public static void onKeyPress(KeyEvent e, int keyStatus){
         int input = e.getKeyCode();
-        if(keyStatus != 0){
-            return false;
-        }
-        switch (input){
-            case 87:
-            case 38:
-            case 0:
-                playerJump();
-                return true;
-            case 65:
-            case 37:
-                playerMoveLeft();
-                return true;
-            case 68:
-            case 39:
-                playerMoveRight();
-                return true;
-            default:
-                return false;
+        switch (input) {
+            case 87, 38, 32 -> {
+                if(keyStatus == 0) {
+                    playerJump();
+                }
+                break;
+            }
+            case 65, 37 -> {
+                if(keyStatus == 0) {
+                    playerMoveLeft();
+                } else if (keyStatus == 1) {
+                    playerStopMoveLeft();
+                }
+                break;
+            }
+            case 68, 39 -> {
+                if(keyStatus == 0) {
+                    playerMoveRight();
+                } else if (keyStatus == 1) {
+                    playerStopMoveRight();
+                }
+                break;
+            }
         }
     }
 
@@ -35,17 +39,27 @@ public class PlayerActions {
         Player p = Main.gameStats.getPlayer();
         if(p.isOnPlatform() && p.getJumpsLeft() > 0) {
             p.setJumpsLeft(p.getJumpsLeft() - 1);
-            p.setJump(p.jumpHeight);
+            p.setForceUp(p.getJumpHeight());
         }
     }
 
     public static void playerMoveLeft(){
         Player p = Main.gameStats.getPlayer();
-        p.getLoc().setX(p.getLoc().getX() - p.getSpeed());
+        p.setMovingLeft(true);
     }
 
     public static void playerMoveRight(){
         Player p = Main.gameStats.getPlayer();
-        p.getLoc().setX(p.getLoc().getX() + p.getSpeed());
+        p.setMovingRight(true);
+    }
+
+    public static void playerStopMoveLeft(){
+        Player p = Main.gameStats.getPlayer();
+        p.setMovingLeft(false);
+    }
+
+    public static void playerStopMoveRight(){
+        Player p = Main.gameStats.getPlayer();
+        p.setMovingRight(false);
     }
 }

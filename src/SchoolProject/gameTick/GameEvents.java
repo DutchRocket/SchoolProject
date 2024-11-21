@@ -7,7 +7,6 @@ import SchoolProject.Player.PlayerPlatformCollision;
 public class GameEvents {
     public static boolean gameTick(){
         Gravity.gravity();
-        endGame.finishHit();
         PlayerPlatformCollision.platformCollisionCheck();
         PlayerMovement.playerMoveUpdate(Main.gameStats.getPlayer());
         return true;

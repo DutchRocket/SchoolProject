@@ -15,7 +15,13 @@ public class Player {
     boolean onPlatform;
     int maxJumps;
     int jumpsLeft;
-    int jump;
+    int forceUp;
+    int forceLeft;
+    int forceRight;
+    boolean movingLeft;
+    boolean movingRight;
+    boolean movingJump;
+    int fallingDistance = 0;
 
     public Player(Color color, String character, int speed, int jumpHeight, int w, int h, Location loc) {
         this.color = color;
@@ -27,7 +33,9 @@ public class Player {
         this.loc = loc;
         this.onPlatform = false;
         this.jumpsLeft = 1;
-        this.jump = 0;
+        this.forceUp = 0;
+        this.forceLeft = 0;
+        this.forceRight = 0;
         this.maxJumps = 1;
     }
 
@@ -105,12 +113,28 @@ public class Player {
         this.jumpsLeft = jumpsLeft;
     }
 
-    public int getJump() {
-        return jump;
+    public int getForceUp() {
+        return forceUp;
     }
 
-    public void setJump(int jump) {
-        this.jump = jump;
+    public void setForceUp(int forceUp) {
+        this.forceUp = forceUp;
+    }
+
+    public int getForceLeft() {
+        return forceLeft;
+    }
+
+    public void setForceLeft(int forceLeft) {
+        this.forceLeft = forceLeft;
+    }
+
+    public int getForceRight() {
+        return forceRight;
+    }
+
+    public void setForceRight(int forceRight) {
+        this.forceRight = forceRight;
     }
 
     public int getMaxJumps() {
@@ -119,5 +143,45 @@ public class Player {
 
     public void setMaxJumps(int maxJumps) {
         this.maxJumps = maxJumps;
+    }
+
+    public boolean isMovingLeft() {
+        return movingLeft;
+    }
+
+    public void setMovingLeft(boolean movingLeft) {
+        this.movingLeft = movingLeft;
+    }
+
+    public boolean isMovingRight() {
+        return movingRight;
+    }
+
+    public void setMovingRight(boolean movingRight) {
+        this.movingRight = movingRight;
+    }
+
+    public boolean isMovingJump() {
+        return movingJump;
+    }
+
+    public void setMovingJump(boolean movingJump) {
+        this.movingJump = movingJump;
+    }
+
+    public int getJumpSpeed() {
+        return 7 * this.getForceUp() / this.jumpHeight;
+    }
+
+    public int getFallingSpeed() {
+        return Math.min(4, 1 + this.fallingDistance / 10);
+    }
+
+    public void resetFallingDistance() {
+        this.fallingDistance = 0;
+    }
+
+    public void addFallingDistance(int fallingSpeed) {
+        this.fallingDistance += fallingSpeed;
     }
 }

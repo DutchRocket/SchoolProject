@@ -11,9 +11,8 @@ public class Platform {
     int rotation;
     int w;
     int h;
-    boolean isFinish;
 
-    public Platform(Color color, String type, int x, int y, int rotation, int w, int h, boolean finish) {
+    public Platform(Color color, String type, int x, int y, int rotation, int w, int h) {
         this.color = color;
         this.type = type;
         this.x = x;
@@ -21,7 +20,6 @@ public class Platform {
         this.rotation = rotation;
         this.w = w;
         this.h = h;
-        this.isFinish = finish;
     }
 
     public Color getColor() {
@@ -78,13 +76,5 @@ public class Platform {
 
     public void setH(int h) {
         this.h = h;
-    }
-
-    public boolean isFinish() {
-        return isFinish;
-    }
-
-    public void setFinish(boolean finish) {
-        isFinish = finish;
     }
 }

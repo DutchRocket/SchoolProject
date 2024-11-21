@@ -7,6 +7,7 @@ import SchoolProject.Level.CreateLevels;
 import SchoolProject.Level.Level;
 import SchoolProject.Level.LoadLevel;
 import SchoolProject.Player.Player;
+import SchoolProject.Player.PlayerFactory;
 import SchoolProject.gameTick.GameEvents;
 import SchoolProject.gameTick.UpdateGUI;
 
@@ -20,24 +21,24 @@ public class Main {
     public static GameStats gameStats;
 
     public static void main(String[] args) {
-        gameStats = new GameStats(new ArrayList<>(), null, new Player(Color.GREEN, "Rocket", 10, 100, 50, 50, new Location(0, 0)));
+        gameStats = new GameStats(new ArrayList<>(), null, PlayerFactory.createPlayerOne());
         OpenGUI.openGUI();
         CreateLevels.createLevels();
         LoadLevel.loadLevel(gameStats.getLevels().get(0));
         System.out.println("hoi");
-        Timer timer = new Timer(gameStats.getFrameRate(), new ActionListener() {
+        Timer frameTick = new Timer(1000/gameStats.getFrameRate(), new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 UpdateGUI.updateGUI();
             }
         });
-        timer.start();
-        Timer timer2 = new Timer(gameStats.getGameSpeed(), new ActionListener() {
+        frameTick.start();
+        Timer gameTick = new Timer(1000/gameStats.getGameSpeed(), new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GameEvents.gameTick();
             }
         });
-        timer2.start();
+        gameTick.start();
     }
 }

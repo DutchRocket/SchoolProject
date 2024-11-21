@@ -3,8 +3,12 @@ package SchoolProject.Level.Object;
 import SchoolProject.Level.Level;
 import SchoolProject.Player.Player;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public class GamePanel extends JPanel {
@@ -32,8 +36,14 @@ public class GamePanel extends JPanel {
         }
 
         // Draw the player
+        BufferedImage image;
+        try {
+            image = ImageIO.read(new File("C:\\Users\\robin\\IdeaProjects\\SchoolProject\\src\\SchoolProject\\Sprites\\Adventurer_Idle.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         g.setColor(player.getColor());
-        g.fillRect((int) player.getLoc().getX(), (int) player.getLoc().getY(), player.getW(), player.getH());
+        g.drawImage(image, (int) player.getLoc().getX(), (int) player.getLoc().getY(), player.getW(), player.getH(), null);
     }
 
     public List<Platform> getPlatforms() {

@@ -1,6 +1,11 @@
-package SchoolProject.Level.Object;
+package SchoolProject.Game;
 
+import SchoolProject.GUI.Pauze.Button;
+import SchoolProject.GUI.Pauze.CreatePauzeMenu;
+import SchoolProject.GUI.Pauze.PauzeMenu;
 import SchoolProject.Level.Level;
+import SchoolProject.Level.Object.Platform;
+import SchoolProject.Main;
 import SchoolProject.Player.Player;
 
 import javax.imageio.ImageIO;
@@ -15,14 +20,16 @@ public class GamePanel extends JPanel {
     private List<Platform> platforms;
     private Player player;
     private Level level;
+    private PauzeMenu pauzeMenu;
 
     // Constructor to pass platforms, player, and level to this panel
-    public GamePanel(List<Platform> platforms, Player player, Level level) {
+    public GamePanel(List<Platform> platforms, Player player, Level level, PauzeMenu pauzeMenu) {
         this.platforms = platforms;
         this.player = player;
         this.level = level;
+        this.pauzeMenu = pauzeMenu;
         // Set preferred size for your panel (optional, depends on your layout)
-        this.setPreferredSize(new Dimension(800, 600));  // Change dimensions based on your requirements
+        this.setPreferredSize(new Dimension(2000, 2000));  // Change dimensions based on your requirements
     }
 
     @Override
@@ -42,8 +49,27 @@ public class GamePanel extends JPanel {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        g.setColor(Color.RED);
+        g.drawRect(player.getLoc().getX(), player.getLoc().getY(), player.getW(), player.getH());
         g.setColor(player.getColor());
-        g.drawImage(image, (int) player.getLoc().getX(), (int) player.getLoc().getY(), player.getW(), player.getH(), null);
+        g.drawImage(image, player.getLoc().getX(), player.getLoc().getY(), player.getW(), player.getH(), null);
+
+        //draw pauzemenu
+        if(Main.gameStats.gamePauzed) {
+            g.setColor(pauzeMenu.getColor());
+            g.fillRect(pauzeMenu.getLocation().getX(), pauzeMenu.getLocation().getY(), pauzeMenu.getWidth(), pauzeMenu.getHeight());
+            //draw buttons
+            for (Button b : pauzeMenu.getButtons()) {
+                g.setColor(b.getColor());
+                if(b.isSelected()){
+                    g.setColor(Color.ORANGE);
+                }
+                g.fillRect(b.getLoc().getX(), b.getLoc().getY(), b.getWidth(), b.getHeight());
+                g.setColor(b.getTextColor());
+                g.setFont(b.getTextFont());
+                g.drawString(b.getText(), b.getTextLocation().getX(), b.getTextLocation().getY());
+            }
+        }
     }
 
     public List<Platform> getPlatforms() {

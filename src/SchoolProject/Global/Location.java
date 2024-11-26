@@ -9,16 +9,16 @@ public class Location {
         this.y = y;
     }
 
-    public double getX() {
-        return x;
+    public int getX() {
+        return (int) x;
     }
 
     public void setX(double x) {
         this.x = x;
     }
 
-    public double getY() {
-        return y;
+    public int getY() {
+        return (int) y;
     }
 
     public void setY(double y) {

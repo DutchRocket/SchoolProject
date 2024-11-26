@@ -1,7 +1,7 @@
-package SchoolProject.GameStats;
+package SchoolProject.Game;
 
+import SchoolProject.GUI.Pauze.PauzeMenu;
 import SchoolProject.Level.Level;
-import SchoolProject.Level.Object.GamePanel;
 import SchoolProject.Player.Player;
 
 import javax.swing.*;
@@ -16,13 +16,18 @@ public class GameStats {
     GamePanel gamePanel;
     int frameRate;
     int gameSpeed;
+    Timer updateFrame;
+    Timer updateGame;
+    boolean gamePauzed;
+    PauzeMenu pauzeMenu;
 
-    public GameStats(ArrayList<Level> levels, JFrame frame, Player player) {
+    public GameStats(ArrayList<Level> levels, JFrame frame, Player player, PauzeMenu pauzeMenu) {
         this.levels = levels;
         this.frame = frame;
         this.player = player;
         this.gameOver = false;
-        this.level = 0;
+        this.pauzeMenu = pauzeMenu;
+        this.level = 1;
         this.frameRate = 60;
         this.gameSpeed = 100;
     }
@@ -89,5 +94,37 @@ public class GameStats {
 
     public void setGameSpeed(int gameSpeed) {
         this.gameSpeed = gameSpeed;
+    }
+
+    public Timer getUpdateFrame() {
+        return updateFrame;
+    }
+
+    public void setUpdateFrame(Timer updateFrame) {
+        this.updateFrame = updateFrame;
+    }
+
+    public Timer getUpdateGame() {
+        return updateGame;
+    }
+
+    public void setUpdateGame(Timer updateGame) {
+        this.updateGame = updateGame;
+    }
+
+    public boolean isGamePauzed() {
+        return gamePauzed;
+    }
+
+    public void setGamePauzed(boolean gamePauzed) {
+        this.gamePauzed = gamePauzed;
+    }
+
+    public PauzeMenu getPauzeMenu() {
+        return pauzeMenu;
+    }
+
+    public void setPauzeMenu(PauzeMenu pauzeMenu) {
+        this.pauzeMenu = pauzeMenu;
     }
 }

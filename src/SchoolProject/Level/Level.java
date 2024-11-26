@@ -7,18 +7,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Level {
+    String name;
     int levelNumber;
     ArrayList<Platform> platforms;
     int timer;
     int spawnX;
     int spawnY;
 
-    public Level(int levelNumber, ArrayList<Platform> platforms, int spawnX, int spawnY) {
+    public Level(int levelNumber, ArrayList<Platform> platforms, int spawnX, int spawnY, String name) {
         this.levelNumber = levelNumber;
         this.platforms = platforms;
         this.timer = 0;
         this.spawnX = spawnX;
         this.spawnY = spawnY;
+        this.name = name;
     }
 
     public int getSpawnX() {
@@ -59,5 +61,13 @@ public class Level {
 
     public void setTimer(int timer) {
         this.timer = timer;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

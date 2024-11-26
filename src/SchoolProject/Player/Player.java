@@ -73,8 +73,8 @@ public class Player {
         this.character = character;
     }
 
-    public int getSpeed() {
-        return speed;
+    public double getSpeed() {
+        return ((double) speed /100);
     }
 
     public void setSpeed(int speed) {

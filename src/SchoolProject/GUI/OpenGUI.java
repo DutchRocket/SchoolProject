@@ -1,12 +1,10 @@
 package SchoolProject.GUI;
 
 import SchoolProject.EventListener;
-import SchoolProject.GameStats.GameStats;
 import SchoolProject.Main;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyListener;
 
 public class OpenGUI {
     public static void openGUI(){

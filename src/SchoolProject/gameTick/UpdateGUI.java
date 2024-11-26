@@ -1,12 +1,11 @@
 package SchoolProject.gameTick;
 
 import SchoolProject.Level.Level;
-import SchoolProject.Level.Object.GamePanel;
+import SchoolProject.Game.GamePanel;
 import SchoolProject.Main;
 import SchoolProject.Player.Player;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class UpdateGUI {
     public static boolean updateGUI(){
@@ -16,6 +15,7 @@ public class UpdateGUI {
         GamePanel gamePanel = Main.gameStats.getGamePanel();
         gamePanel.setPlayer(player);
         gamePanel.setPlatforms(level.getPlatforms());
+        gamePanel.setLevel(level);
         gamePanel.repaint();
         return true;
     }

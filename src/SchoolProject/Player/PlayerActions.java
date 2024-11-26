@@ -1,7 +1,5 @@
 package SchoolProject.Player;
 
-import SchoolProject.GameStats.GameStats;
-import SchoolProject.Global.Location;
 import SchoolProject.Main;
 
 import java.awt.event.KeyEvent;
@@ -10,28 +8,25 @@ public class PlayerActions {
     public static void onKeyPress(KeyEvent e, int keyStatus){
         int input = e.getKeyCode();
         switch (input) {
-            case 87, 38, 32 -> {
+            case 87, 38, 32:
                 if(keyStatus == 0) {
                     playerJump();
                 }
                 break;
-            }
-            case 65, 37 -> {
+            case 65, 37:
                 if(keyStatus == 0) {
                     playerMoveLeft();
                 } else if (keyStatus == 1) {
                     playerStopMoveLeft();
                 }
                 break;
-            }
-            case 68, 39 -> {
+            case 68, 39:
                 if(keyStatus == 0) {
                     playerMoveRight();
                 } else if (keyStatus == 1) {
                     playerStopMoveRight();
                 }
                 break;
-            }
         }
     }
 

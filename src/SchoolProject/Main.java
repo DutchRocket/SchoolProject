@@ -18,6 +18,7 @@ public class Main {
     public static GameStats gameStats;
 
     public static void main(String[] args) {
+        // this is a change
         gameStats = new GameStats(new ArrayList<>(), null, PlayerFactory.createPlayerOne(), CreatePauzeMenu.createPauzeMenu());
         OpenGUI.openGUI();
         CreateLevels.createLevels();

@@ -1,8 +1,8 @@
 package SchoolProject.Player;
 
-import SchoolProject.Global.Location;
 import SchoolProject.Level.LoadLevel;
-import SchoolProject.Level.Object.Platform;
+import SchoolProject.Level.Platforms.LevelTeleporter;
+import SchoolProject.Level.Platforms.Platform;
 import SchoolProject.Main;
 import SchoolProject.gameTick.EndGame;
 
@@ -74,8 +74,8 @@ public class PlayerPlatformCollision {
 
     public static void playerCollision(Player player, Platform platform){
         if(platform.getType().equals("level")){
-            int level = Integer.parseInt(platform.getExtraInfo());
-            Main.gameStats.setLevel(level);
+            LevelTeleporter levelTeleporter = (LevelTeleporter) platform;
+            Main.gameStats.setLevel(levelTeleporter.getLevel());
             LoadLevel.loadLevel(Main.gameStats.getLevels().get(Main.gameStats.getLevel()));
         }
     }

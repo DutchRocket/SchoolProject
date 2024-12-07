@@ -1,30 +1,16 @@
-package SchoolProject.Level.Object;
+package SchoolProject.Level.Platforms;
 
 import java.awt.*;
-import java.nio.file.Path;
 
 public class Platform {
     Color color;
     String type;
-    String extraInfo;
     int x;
     int y;
     int rotation;
     int w;
     int h;
     boolean collision;
-
-    public Platform(Color color, String type, int x, int y, int rotation, int w, int h, boolean collision, String extraInfo) {
-        this.color = color;
-        this.type = type;
-        this.x = x;
-        this.y = y;
-        this.rotation = rotation;
-        this.w = w;
-        this.h = h;
-        this.collision = collision;
-        this.extraInfo = extraInfo;
-    }
 
     public Platform(Color color, String type, int x, int y, int rotation, int w, int h, boolean collision) {
         this.color = color;
@@ -35,7 +21,6 @@ public class Platform {
         this.w = w;
         this.h = h;
         this.collision = collision;
-        this.extraInfo = null;
     }
 
     public Platform(Color color, String type, int x, int y, int rotation, int w, int h) {
@@ -47,7 +32,6 @@ public class Platform {
         this.w = w;
         this.h = h;
         this.collision = true;
-        this.extraInfo = null;
     }
 
     public Color getColor() {
@@ -108,14 +92,6 @@ public class Platform {
 
     public boolean isCollision() {
         return collision;
-    }
-
-    public String getExtraInfo() {
-        return extraInfo;
-    }
-
-    public void setExtraInfo(String extraInfo) {
-        this.extraInfo = extraInfo;
     }
 
     public void setCollision(boolean collision) {

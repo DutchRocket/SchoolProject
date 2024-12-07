@@ -1,12 +1,7 @@
 package SchoolProject.gameTick;
 
 import SchoolProject.Level.LoadLevel;
-import SchoolProject.Level.Object.Platform;
 import SchoolProject.Main;
-import SchoolProject.Player.Player;
-
-import java.awt.*;
-import java.util.ArrayList;
 
 public class EndGame {
     public static void finishHit(){

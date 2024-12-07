@@ -1,10 +1,8 @@
 package SchoolProject.Level;
 
-import SchoolProject.Level.Object.Platform;
+import SchoolProject.Level.Platforms.Platform;
 
-import javax.xml.stream.Location;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Level {
     String name;

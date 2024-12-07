@@ -1,6 +1,5 @@
 package SchoolProject.GUI.Pauze;
 
-import SchoolProject.Game.GamePanel;
 import SchoolProject.Game.GameStats;
 import SchoolProject.Level.LoadLevel;
 import SchoolProject.Main;
@@ -9,10 +8,10 @@ import SchoolProject.gameTick.EndGame;
 import java.awt.event.KeyEvent;
 
 public class PauzeMenuListener {
-    public static void pauzeMenuListener(KeyEvent e){
+    public static boolean pauzeMenuListener(KeyEvent e){
         GameStats gameStats = Main.gameStats;
         if(!gameStats.isGamePauzed()){
-            return;
+            return false;
         }
         PauzeMenu pauzeMenu = gameStats.getPauzeMenu();
         int input = e.getKeyCode();
@@ -57,5 +56,6 @@ public class PauzeMenuListener {
                 }
                 break;
         }
+        return true;
     }
 }

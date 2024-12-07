@@ -1,5 +1,6 @@
 package SchoolProject.GUI.Pauze;
 
+import SchoolProject.GUI.FontFactory;
 import SchoolProject.Global.Location;
 
 import java.awt.*;
@@ -14,7 +15,7 @@ public class CreatePauzeMenu {
             button.setHeight(50);
             button.setLoc(new Location(500, 250+i*70));
             button.setWidth(500);
-            button.setTextFont(new Font("TimesRoman", Font.BOLD, 35));
+            button.setTextFont(FontFactory.createBold(35));
             switch (i){
                 case 0:
                     button.setText("Resume");

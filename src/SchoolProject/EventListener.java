@@ -16,9 +16,13 @@ public class EventListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        PlayerActions.onKeyPress(e, 0);
-        PauzeGame.gamePauzed(e);
+        //only at spacebar?
+        if (!Main.gameStats.isGamePauzed()) {
+            PlayerActions.onKeyPress(e, 0);
+        }
         PauzeMenuListener.pauzeMenuListener(e);
+        PauzeGame.gamePauzed(e);
+
     }
 
     @Override

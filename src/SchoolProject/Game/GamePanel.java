@@ -1,10 +1,11 @@
 package SchoolProject.Game;
 
+import SchoolProject.GUI.FontFactory;
 import SchoolProject.GUI.Pauze.Button;
-import SchoolProject.GUI.Pauze.CreatePauzeMenu;
 import SchoolProject.GUI.Pauze.PauzeMenu;
 import SchoolProject.Level.Level;
-import SchoolProject.Level.Object.Platform;
+import SchoolProject.Level.Platforms.LevelTeleporter;
+import SchoolProject.Level.Platforms.Platform;
 import SchoolProject.Main;
 import SchoolProject.Player.Player;
 
@@ -40,12 +41,19 @@ public class GamePanel extends JPanel {
         for (Platform p : platforms) {
             g.setColor(p.getColor());
             g.fillRect(p.getX(), p.getY(), p.getW(), p.getH());
+            if(p instanceof LevelTeleporter){
+                String levelInfo = ((LevelTeleporter) p).getLevelInfo();
+                g.setColor(Color.BLACK);
+                g.setFont(FontFactory.create(20));
+                g.drawString(levelInfo, p.getX(), p.getY()-10);
+            }
         }
 
         // Draw the player
         BufferedImage image;
         try {
             image = ImageIO.read(new File("C:\\Users\\robin\\IdeaProjects\\SchoolProject\\src\\SchoolProject\\Sprites\\Adventurer_Idle.png"));
+//            image = ImageIO.read(new File("Sprites\\Adventurer_Idle.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -18,12 +18,24 @@ public class Main {
     public static GameStats gameStats;
 
     public static void main(String[] args) {
-        // this is a change
+        //start the game
+        startGame();
+    }
+
+    private static void startGame(){
+        //create gamestats file
         gameStats = new GameStats(new ArrayList<>(), null, PlayerFactory.createPlayerOne(), CreatePauzeMenu.createPauzeMenu());
+        //create GUI
         OpenGUI.openGUI();
+        //create the levels
         CreateLevels.createLevels();
+        //load first level (needs to become startgamemenu)
         LoadLevel.loadLevel(gameStats.getLevels().get(1));
-        System.out.println("hoi");
+        //create timers
+        createTimers();
+    }
+
+    private static void createTimers(){
         //create timers
         Timer frameTick = new Timer(1000/gameStats.getFrameRate(), new ActionListener() {
             @Override

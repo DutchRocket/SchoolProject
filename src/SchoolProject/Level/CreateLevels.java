@@ -14,6 +14,9 @@ public class CreateLevels {
         gameStats.getLevels().addFirst(levelSelect());
         gameStats.getLevels().add(1, level1());
         gameStats.getLevels().add(2, level2());
+        gameStats.getLevels().add(3, level3());
+        gameStats.getLevels().add(4, level4());
+        gameStats.getLevels().add(5, level5());
     }
 
     public static Level levelSelect(){
@@ -21,10 +24,13 @@ public class CreateLevels {
         platforms.add(new Platform(Color.BLACK, "normal" , 400, 300, 0, 500, 40));
         platforms.add(new LevelTeleporter(Color.GREEN, "level" , 700, 250, 0, 50, 50, 1, "level 1", false));
         platforms.add(new Platform(Color.BLACK, "normal", 20, 400, 0, 400, 30));
-        platforms.add(new Platform(Color.BLACK, "normal", 1000, 200, 0, 400, 30));
-        platforms.add(new LevelTeleporter(Color.GREEN, "level", 1300, 150, 0, 50, 50, 2, "level 2", false));
-        platforms.add(new Platform(Color.BLACK, "normal", 795, 500, 0, 600, 20));
+        platforms.add(new Platform(Color.BLACK, "normal", 1000, 200, 0, 4000, 30));
+        platforms.add(new LevelTeleporter(Color.GREEN, "level", 1200, 150, 0, 50, 50, 2, "level 2", false));
+        platforms.add(new Platform(Color.BLACK, "normal", 795, 500, 0, 1000, 20));
         platforms.add(new Platform(Color.BLACK, "normal", 600, 450, 0, 80, 20));
+        platforms.add(new LevelTeleporter(Color.BLUE, "level", 1300, 150, 0, 50, 50, 3, "level 3", false));
+        platforms.add(new LevelTeleporter(Color.BLUE, "level", 1400, 150, 0, 50, 50, 4, "level 4", false));
+        platforms.add(new LevelTeleporter(Color.GREEN, "level", 1500, 150, 0, 50, 50, 5, "level 5", false));
         Level level0 = new Level(0, platforms, 100, 100, "Level-select");
         return level0;
     }
@@ -48,6 +54,39 @@ public class CreateLevels {
         platforms.add(new Platform(Color.PINK, "normal", 795, 500, 0, 600, 20));
         platforms.add(new Platform(Color.YELLOW, "finish", 600, 450, 0, 80, 20));
         Level level2 = new Level(2, platforms, 100, 100, "pink?");
+        return level2;
+    }
+
+    public static Level level3(){
+        ArrayList<Platform> platforms = new ArrayList<>();
+        platforms.add(new Platform(Color.BLUE, "normal" , 20, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 200, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 400, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 700, 300, 0, 50, 20));
+        platforms.add(new Platform(Color.GREEN, "finish", 850, 250, 0, 50, 20));
+        Level level2 = new Level(2, platforms, 30, 100, "sea-blue");
+        return level2;
+    }
+
+    public static Level level4(){
+        ArrayList<Platform> platforms = new ArrayList<>();
+        platforms.add(new Platform(Color.BLUE, "normal" , 20, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 200, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 400, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 700, 300, 0, 50, 20));
+        platforms.add(new Platform(Color.GREEN, "finish", 850, 250, 0, 50, 20));
+        Level level2 = new Level(2, platforms, 30, 100, "sea-blue again?");
+        return level2;
+    }
+
+    public static Level level5(){
+        ArrayList<Platform> platforms = new ArrayList<>();
+        platforms.add(new Platform(Color.BLUE, "normal" , 20, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 200, 300, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 400, 400, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 700, 500, 0, 50, 20));
+        platforms.add(new Platform(Color.GREEN, "finish", 1000, 600, 0, 50, 20));
+        Level level2 = new Level(2, platforms, 30, 100, "grass-green");
         return level2;
     }
 }

@@ -1,5 +1,6 @@
 package SchoolProject.GUI.Pauze;
 
+import SchoolProject.GUI.Button;
 import SchoolProject.GUI.FontFactory;
 import SchoolProject.Global.Location;
 
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 public class CreatePauzeMenu {
     public static PauzeMenu createPauzeMenu(){
         PauzeMenu pauzeMenu = new PauzeMenu();
-        ArrayList<Button> buttons = new ArrayList<>();
+        ArrayList<SchoolProject.GUI.Button> buttons = new ArrayList<>();
         for(int i = 0; i<3; i++) {
-            Button button = new Button();
+            SchoolProject.GUI.Button button = new Button();
             button.setHeight(50);
             button.setLoc(new Location(500, 250+i*70));
             button.setWidth(500);

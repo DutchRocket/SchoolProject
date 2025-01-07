@@ -20,6 +20,7 @@ public class GameStats {
     Timer updateGame;
     boolean gamePauzed;
     PauzeMenu pauzeMenu;
+    boolean gameStarted;
 
     public GameStats(ArrayList<Level> levels, JFrame frame, Player player, PauzeMenu pauzeMenu) {
         this.levels = levels;

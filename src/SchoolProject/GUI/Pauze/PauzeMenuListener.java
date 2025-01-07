@@ -1,5 +1,6 @@
 package SchoolProject.GUI.Pauze;
 
+import SchoolProject.GUI.Button;
 import SchoolProject.Game.GameStats;
 import SchoolProject.Level.LoadLevel;
 import SchoolProject.Main;

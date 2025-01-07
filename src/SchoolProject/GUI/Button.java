@@ -1,4 +1,4 @@
-package SchoolProject.GUI.Pauze;
+package SchoolProject.GUI;
 
 import SchoolProject.Global.Location;
 

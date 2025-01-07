@@ -1,7 +1,7 @@
 package SchoolProject.Game;
 
 import SchoolProject.GUI.FontFactory;
-import SchoolProject.GUI.Pauze.Button;
+import SchoolProject.GUI.Button;
 import SchoolProject.GUI.Pauze.PauzeMenu;
 import SchoolProject.Level.Level;
 import SchoolProject.Level.Platforms.LevelTeleporter;

@@ -1,19 +1,20 @@
 package SchoolProject.GUI.Pauze;
 
+import SchoolProject.GUI.Button;
 import SchoolProject.Global.Location;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 public class PauzeMenu {
-    ArrayList<Button> buttons;
+    ArrayList<SchoolProject.GUI.Button> buttons;
     Color color;
     Location location;
     int height;
     int width;
     int selectedButton;
 
-    public ArrayList<Button> getButtons() {
+    public ArrayList<SchoolProject.GUI.Button> getButtons() {
         return buttons;
     }
 

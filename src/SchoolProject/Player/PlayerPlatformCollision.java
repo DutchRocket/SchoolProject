@@ -74,7 +74,12 @@ public class PlayerPlatformCollision {
 
     public static void playerCollision(Player player, Platform platform){
         if(platform.getType().equals("level")){
-            LevelTeleporter levelTeleporter = (LevelTeleporter) platform;
+            playerLevelTeleporterCollision(player, (LevelTeleporter) platform);
+        }
+    }
+
+    public static void playerLevelTeleporterCollision(Player player, LevelTeleporter levelTeleporter){
+        if(!levelTeleporter.isLocked()) {
             Main.gameStats.setLevel(levelTeleporter.getLevel());
             LoadLevel.loadLevel(Main.gameStats.getLevels().get(Main.gameStats.getLevel()));
         }

@@ -46,7 +46,7 @@ public class GamePanel extends JPanel {
                 g.setColor(Color.BLACK);
                 g.setFont(FontFactory.create(20));
                 g.drawString(levelInfo, p.getX(), p.getY()-10);
-                if(Main.gameStats.getLevels().get(((LevelTeleporter) p).getLevel()).isLocked()){
+                if(((LevelTeleporter) p).isLocked()){
                     BufferedImage image;
                     try {
                         image = ImageIO.read(new File("src/SchoolProject/Sprites/lock.png"));

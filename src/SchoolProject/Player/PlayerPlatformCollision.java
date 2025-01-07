@@ -1,6 +1,5 @@
 package SchoolProject.Player;
 
-import SchoolProject.Level.Level;
 import SchoolProject.Level.LoadLevel;
 import SchoolProject.Level.Platforms.LevelTeleporter;
 import SchoolProject.Level.Platforms.Platform;
@@ -13,8 +12,7 @@ import java.util.ArrayList;
 public class PlayerPlatformCollision {
     public static void platformCollisionCheck(){
         Player player = Main.gameStats.getPlayer();
-        Level level = Main.gameStats.getLevels().get(Main.gameStats.getLevel());
-        ArrayList<Platform> platforms = level.getPlatforms();
+        ArrayList<Platform> platforms = Main.gameStats.getLevels().get(Main.gameStats.getLevel()).getPlatforms();
         Rectangle playerRect = new Rectangle((int) player.getLoc().getX(), (int) player.getLoc().getY(), player.getW(), player.getH());
         boolean onPlatform = false;
         for(Platform platform : platforms){
@@ -28,7 +26,7 @@ public class PlayerPlatformCollision {
                 if (intersect.getWidth() > intersect.getHeight()) {
                     if (playerRect.getY() < platformRect.getY()) {
                         //hit top of the platform
-                        playerLandedOnPlatform(player, platform, level);
+                        playerLandedOnPlatform(player, platform);
                         playerCollision(player, platform);
                         onPlatform = true;
                     }else{
@@ -52,10 +50,10 @@ public class PlayerPlatformCollision {
         player.setOnPlatform(onPlatform);
     }
 
-    public static void playerLandedOnPlatform(Player player, Platform platform, Level level){
+    public static void playerLandedOnPlatform(Player player, Platform platform){
         player.setJumpsLeft(player.getMaxJumps());
         if(platform.getType().equals("finish")){
-            EndGame.finishHit(level);
+            EndGame.finishHit();
         }
     }
 
@@ -81,7 +79,7 @@ public class PlayerPlatformCollision {
     }
 
     public static void playerLevelTeleporterCollision(Player player, LevelTeleporter levelTeleporter){
-        if(!Main.gameStats.getLevels().get(levelTeleporter.getLevel()).isLocked()) {
+        if(!levelTeleporter.isLocked()) {
             Main.gameStats.setLevel(levelTeleporter.getLevel());
             LoadLevel.loadLevel(Main.gameStats.getLevels().get(Main.gameStats.getLevel()));
         }

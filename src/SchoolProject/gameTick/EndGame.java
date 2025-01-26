@@ -10,7 +10,9 @@ public class EndGame {
     }
 
     public static void levelCompleted(Level level){
-        Main.gameStats.getLevels().get(level.getLevelNumber()+1).setLocked(false);
+        if(Main.gameStats.getLevels().size()>level.getLevelNumber()+1) {
+            Main.gameStats.getLevels().get(level.getLevelNumber() + 1).setLocked(false);
+        }
         Main.gameStats.setLevel(0);
         LoadLevel.loadLevel(Main.gameStats.getLevels().get(Main.gameStats.getLevel()));
         System.out.println("You completed level " + Main.gameStats.getLevel());

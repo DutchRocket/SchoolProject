@@ -28,12 +28,14 @@ public class Main {
         OpenGUI.openGUI();
         CreateStartMenu.createStartMenu();
         //create timer
+        /*
         Timer StartMenu = new Timer(1000/gameStats.getFrameRate(), new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CreateStartMenu.updateStartMenu();
             }
         });
+         */
     }
 
     public static void createTimers(){

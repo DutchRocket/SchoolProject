@@ -2,6 +2,8 @@ package SchoolProject;
 
 import SchoolProject.GUI.Pauze.PauzeGame;
 import SchoolProject.GUI.Pauze.PauzeMenuListener;
+import SchoolProject.GUI.Startmenu.CreateStartMenu;
+import SchoolProject.Game.GameStats;
 import SchoolProject.Player.PlayerActions;
 
 import java.awt.event.KeyEvent;
@@ -16,13 +18,16 @@ public class EventListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        //only at spacebar?
-        if (!Main.gameStats.isGamePauzed()) {
-            PlayerActions.onKeyPress(e, 0);
+        if(Main.gameStats.isGameStarted()) {
+            //only at spacebar?
+            if (!Main.gameStats.isGamePauzed()) {
+                PlayerActions.onKeyPress(e, 0);
+            }
+            PauzeMenuListener.pauzeMenuListener(e);
+            PauzeGame.gamePauzed(e);
+        }else{
+            CreateStartMenu.startGame();
         }
-        PauzeMenuListener.pauzeMenuListener(e);
-        PauzeGame.gamePauzed(e);
-
     }
 
     @Override

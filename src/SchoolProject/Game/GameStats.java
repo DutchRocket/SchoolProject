@@ -28,9 +28,17 @@ public class GameStats {
         this.player = player;
         this.gameOver = false;
         this.pauzeMenu = pauzeMenu;
-        this.level = 1;
+        this.level = 0;
         this.frameRate = 60;
         this.gameSpeed = 100;
+    }
+
+    public boolean isGameStarted() {
+        return gameStarted;
+    }
+
+    public void setGameStarted(boolean gameStarted) {
+        this.gameStarted = gameStarted;
     }
 
     public GamePanel getGamePanel() {

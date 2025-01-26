@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class CreateLevels {
     public static void createLevels(){
         GameStats gameStats = Main.gameStats;
-        gameStats.getLevels().addFirst(levelSelect());
+        gameStats.getLevels().add(0, levelSelect());
         gameStats.getLevels().add(1, level1());
         gameStats.getLevels().add(2, level2());
         gameStats.getLevels().add(3, level3());

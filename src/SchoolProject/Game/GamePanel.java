@@ -49,7 +49,8 @@ public class GamePanel extends JPanel {
                 if(Main.gameStats.getLevels().get(((LevelTeleporter) p).getLevel()).isLocked()){
                     BufferedImage image;
                     try {
-                        image = ImageIO.read(new File("src/SchoolProject/Sprites/lock.png"));
+                        image = ImageIO.read(getClass().getResourceAsStream("/SchoolProject/Sprites/lock.png"));
+           //             image = ImageIO.read(new File("src/SchoolProject/Sprites/lock.png"));
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -61,7 +62,8 @@ public class GamePanel extends JPanel {
         // Draw the player
         BufferedImage image;
         try {
-            image = ImageIO.read(new File("src/SchoolProject/Sprites/Adventurer_Idle.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/SchoolProject/Sprites/Adventurer_Idle.png"));
+        //    image = ImageIO.read(new File("src/SchoolProject/Sprites/Adventurer_Idle.png"));
 //            image = ImageIO.read(new File("Sprites\\Adventurer_Idle.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -46,13 +46,22 @@ public class GamePanel extends JPanel {
                 g.setColor(Color.BLACK);
                 g.setFont(FontFactory.create(20));
                 g.drawString(levelInfo, p.getX(), p.getY()-10);
+                if(Main.gameStats.getLevels().get(((LevelTeleporter) p).getLevel()).isLocked()){
+                    BufferedImage image;
+                    try {
+                        image = ImageIO.read(new File("src/SchoolProject/Sprites/lock.png"));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    g.drawImage(image, p.getX()+(p.getW()/4), p.getY()+(p.getH()/4), p.getW()/2, p.getH()/2, null);
+                }
             }
         }
 
         // Draw the player
         BufferedImage image;
         try {
-            image = ImageIO.read(new File("C:\\Users\\robin\\IdeaProjects\\SchoolProject\\src\\SchoolProject\\Sprites\\Adventurer_Idle.png"));
+            image = ImageIO.read(new File("src/SchoolProject/Sprites/Adventurer_Idle.png"));
 //            image = ImageIO.read(new File("Sprites\\Adventurer_Idle.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);

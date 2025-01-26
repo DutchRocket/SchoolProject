@@ -1,14 +1,16 @@
 package SchoolProject.gameTick;
 
+import SchoolProject.Level.Level;
 import SchoolProject.Level.LoadLevel;
 import SchoolProject.Main;
 
 public class EndGame {
-    public static void finishHit(){
-        levelCompleted();
+    public static void finishHit(Level level){
+        levelCompleted(level);
     }
 
-    public static void levelCompleted(){
+    public static void levelCompleted(Level level){
+        Main.gameStats.getLevels().get(level.getLevelNumber()+1).setLocked(false);
         Main.gameStats.setLevel(0);
         LoadLevel.loadLevel(Main.gameStats.getLevels().get(Main.gameStats.getLevel()));
         System.out.println("You completed level " + Main.gameStats.getLevel());

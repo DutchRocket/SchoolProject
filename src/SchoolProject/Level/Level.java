@@ -11,6 +11,7 @@ public class Level {
     int timer;
     int spawnX;
     int spawnY;
+    boolean isLocked = true;
 
     public Level(int levelNumber, ArrayList<Platform> platforms, int spawnX, int spawnY, String name) {
         this.levelNumber = levelNumber;
@@ -19,6 +20,14 @@ public class Level {
         this.spawnX = spawnX;
         this.spawnY = spawnY;
         this.name = name;
+    }
+
+    public boolean isLocked() {
+        return isLocked;
+    }
+
+    public void setLocked(boolean locked) {
+        isLocked = locked;
     }
 
     public int getSpawnX() {

@@ -6,7 +6,6 @@ public class LevelTeleporter extends Platform {
 
     int level;
     String levelInfo;
-    boolean locked = false;
 
     public LevelTeleporter(Color color, String type, int x, int y, int rotation, int w, int h, int level, String levelInfo, boolean collision) {
         super(color, type, x, y, rotation, w, h, collision);
@@ -28,11 +27,4 @@ public class LevelTeleporter extends Platform {
         return levelInfo;
     }
 
-    public boolean isLocked() {
-        return locked;
-    }
-
-    public void setLocked(boolean locked) {
-        this.locked = locked;
-    }
 }

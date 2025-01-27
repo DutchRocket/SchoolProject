@@ -68,8 +68,8 @@ public class GamePanel extends JPanel {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        g.setColor(Color.RED);
-        g.drawRect(player.getLoc().getX(), player.getLoc().getY(), player.getW(), player.getH());
+//        g.setColor(Color.RED);
+//        g.drawRect(player.getLoc().getX(), player.getLoc().getY(), player.getW(), player.getH());
         g.setColor(player.getColor());
         g.drawImage(image, player.getLoc().getX(), player.getLoc().getY(), player.getW(), player.getH(), null);
 

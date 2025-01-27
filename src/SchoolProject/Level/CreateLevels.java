@@ -38,22 +38,22 @@ public class CreateLevels {
     public static Level level1(){
         ArrayList<Platform> platforms = new ArrayList<>();
         platforms.add(new Platform(Color.BLUE, "normal" , 400, 300, 0, 500, 40));
-        platforms.add(new Platform(Color.BLACK, "normal", 20, 400, 0, 400, 30));
-        platforms.add(new Platform(Color.GREEN, "normal", 1000, 200, 0, 400, 30));
-        platforms.add(new Platform(Color.BLACK, "normal", 795, 500, 0, 600, 20));
-        platforms.add(new Platform(Color.CYAN, "finish", 600, 450, 0, 80, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 20, 400, 0, 400, 30));
+        platforms.add(new Platform(Color.BLUE, "normal", 1000, 200, 0, 400, 30));
+        platforms.add(new Platform(Color.BLUE, "normal", 795, 500, 0, 600, 20));
+        platforms.add(new Platform(Color.GREEN, "finish", 600, 450, 0, 80, 20));
         Level level1 = new Level(1, platforms, 100, 100, "First");
         return level1;
     }
 
     public static Level level2(){
         ArrayList<Platform> platforms = new ArrayList<>();
-        platforms.add(new Platform(Color.PINK, "normal" , 400, 300, 0, 500, 40));
-        platforms.add(new Platform(Color.PINK, "normal", 20, 400, 0, 400, 30));
-        platforms.add(new Platform(Color.PINK, "normal", 1000, 200, 0, 400, 30));
-        platforms.add(new Platform(Color.PINK, "normal", 795, 500, 0, 600, 20));
-        platforms.add(new Platform(Color.YELLOW, "finish", 600, 450, 0, 80, 20));
-        Level level2 = new Level(2, platforms, 100, 100, "pink?");
+        platforms.add(new Platform(Color.BLUE, "normal" , 20, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 200, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 400, 200, 0, 50, 20));
+        platforms.add(new Platform(Color.BLUE, "normal", 650, 300, 0, 75, 20));
+        platforms.add(new Platform(Color.GREEN, "finish", 850, 250, 0, 50, 20));
+        Level level2 = new Level(2, platforms, 30, 100, "sea-blue");
         return level2;
     }
 

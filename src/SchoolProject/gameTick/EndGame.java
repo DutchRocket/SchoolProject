@@ -13,9 +13,9 @@ public class EndGame {
         if(Main.gameStats.getLevels().size()>level.getLevelNumber()+1) {
             Main.gameStats.getLevels().get(level.getLevelNumber() + 1).setLocked(false);
         }
+        System.out.println("You completed level " + Main.gameStats.getLevel());
         Main.gameStats.setLevel(0);
         LoadLevel.loadLevel(Main.gameStats.getLevels().get(Main.gameStats.getLevel()));
-        System.out.println("You completed level " + Main.gameStats.getLevel());
     }
 
     public static void levelLost(){
